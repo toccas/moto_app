@@ -16,4 +16,10 @@ interface RideDao {
 
     @Delete
     suspend fun delete(session: RideSession)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertRoutePoints(points: List<RoutePoint>)
+
+    @Query("SELECT * FROM route_points WHERE sessionId = :sessionId ORDER BY timestamp ASC")
+    suspend fun getRoutePoints(sessionId: String): List<RoutePoint>
 }

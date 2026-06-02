@@ -78,7 +78,9 @@ class TrackingViewModel(app: Application) : AndroidViewModel(app) {
             endTime = result.endTime,
             durationSeconds = result.durationSeconds,
             maxSpeedKmh = result.maxSpeedKmh,
-            distanceKm = result.distanceKm
+            maxLeanAngleDeg = result.maxLeanAngleDeg,
+            distanceKm = result.distanceKm,
+            gpsPoints = result.gpsPoints
         )
         viewModelScope.launch {
             try {
@@ -87,7 +89,7 @@ class TrackingViewModel(app: Application) : AndroidViewModel(app) {
                     _message.value = "Telefono non connesso"
                     return@launch
                 }
-                val payload = rideData.toJson().toByteArray()
+                val payload = rideData.toGzipBytes()
                 nodes.forEach { node ->
                     Wearable.getMessageClient(context)
                         .sendMessage(node.id, RideData.MESSAGE_PATH, payload)

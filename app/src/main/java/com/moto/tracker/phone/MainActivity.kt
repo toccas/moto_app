@@ -10,6 +10,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.moto.tracker.phone.ui.SessionDetailScreen
 import com.moto.tracker.phone.ui.SessionListScreen
+import org.osmdroid.config.Configuration
 
 class MainActivity : ComponentActivity() {
 
@@ -17,6 +18,7 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Configuration.getInstance().userAgentValue = packageName
         setContent {
             MaterialTheme {
                 val navController = rememberNavController()

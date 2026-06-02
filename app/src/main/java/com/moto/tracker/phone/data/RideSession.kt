@@ -10,5 +10,6 @@ data class RideSession(
     val endTime: Long,
     val durationSeconds: Long,
     val maxSpeedKmh: Float,
+    val maxLeanAngleDeg: Float = 0f,
     val distanceKm: Float
 )

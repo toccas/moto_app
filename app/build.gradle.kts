@@ -47,4 +47,6 @@ dependencies {
     implementation(libs.coroutines.android)
     implementation(libs.coroutines.play.services)
     implementation(libs.gson)
+
+    implementation(libs.osmdroid)
 }

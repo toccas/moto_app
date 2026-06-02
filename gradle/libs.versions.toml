@@ -11,6 +11,7 @@ lifecycle = "2.7.0"
 navigationCompose = "2.7.7"
 gson = "2.10.1"
 location = "21.1.0"
+osmdroid = "6.1.18"
 
 [libraries]
 # Compose (phone)
@@ -44,6 +45,9 @@ wear-compose-navigation = { group = "androidx.wear.compose", name = "compose-nav
 coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
 coroutines-play-services = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-play-services", version.ref = "coroutines" }
 gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
+
+# Maps
+osmdroid = { group = "org.osmdroid", name = "osmdroid-android", version.ref = "osmdroid" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

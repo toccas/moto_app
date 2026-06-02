@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.BugReport
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.TwoWheeler
 import androidx.compose.material3.*
@@ -34,7 +35,16 @@ fun SessionListScreen(
                 title = { Text("Moto Tracker", fontWeight = FontWeight.Bold) },
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.primaryContainer
-                )
+                ),
+                actions = {
+                    IconButton(onClick = { scope.launch { viewModel.insertDebugSession() } }) {
+                        Icon(
+                            Icons.Filled.BugReport,
+                            contentDescription = "Inserisci giro di test",
+                            tint = MaterialTheme.colorScheme.onPrimaryContainer
+                        )
+                    }
+                }
             )
         }
     ) { padding ->
